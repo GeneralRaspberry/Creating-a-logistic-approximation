@@ -94,7 +94,7 @@ beta <- .2 ##The data I sent you, which is called data in R is the 1000 realisat
 theta <- 86
 b <- 1
 area.host<-1
-infbegin<-1
+infbegin<-5
 
 ##################################add a timer##############################################################
 
@@ -299,15 +299,9 @@ parameter_table<-data.frame("Growth Rate"=mean_r, "Mean Dispersal Distance"= the
 parametertablenamefile<-paste0(wdspec, "Growth Rate ",mean_r, "Mean Dispersal Distance ", theta*2,"\u03b2 ",beta, "Plant Distribution " , randmod, "\u03C4-leap ", delta.t, ".Rda")
 save(parameter_table,file=parametertablenamefile)
 
-###################################running the extra bit of logistic growth curve###########################
-tfinal<-log((hosts^2-hosts)/(hosts-1))*(1/mean_r)
-tfinal
 
-#This led to a value of approximately a half
-
-log((hosts-1)*(hosts-1))/mean_r
-
-log((hosts^2-hosts*(infbegin+1)-infbegin)/infbegin)/mean_r
+########################################added calculation of time finish####################################
+t<-log((hosts^2-hosts*(infbegin+1)+infbegin)/infbegin)/mean_r
 ##########ALL BELOW IS GOING TO BE REWRITTEN INTO MORE SUITABLE FORMAT######################################
 ############################################################################################################
 ############################################################################################################
