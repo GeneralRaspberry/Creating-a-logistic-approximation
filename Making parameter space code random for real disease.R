@@ -302,6 +302,18 @@ save(parameter_table,file=parametertablenamefile)
 
 ########################################added calculation of time finish####################################
 t<-log((hosts^2-hosts*(infbegin+1)+infbegin)/infbegin)/mean_r
+t
+intinf<-(hosts^2-hosts)/(exp(mean_r*t)+hosts-1)
+intinf
+
+####################################translating from theoretical to data###################################
+kfinallow<-max(which(pred_data$infected<=hosts-1))
+intinflow<-(hosts^2-hosts)/(exp(mean_r*pred_data$time[kfinallow])+hosts-1)
+intinflow
+
+kfinalhigh<-min(which(pred_data$infected>=hosts-1))
+intinfhigh<-(hosts^2-hosts)/(exp(mean_r*pred_data$time[kfinalhigh])+hosts-1)
+intinfhigh
 ##########ALL BELOW IS GOING TO BE REWRITTEN INTO MORE SUITABLE FORMAT######################################
 ############################################################################################################
 ############################################################################################################
